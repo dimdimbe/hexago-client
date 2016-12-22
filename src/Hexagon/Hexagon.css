@@ -1,0 +1,39 @@
+.hexagon_before{
+  content: '';
+  height: 0;
+  left: 0;
+  position: absolute;
+  width: 0;
+}
+
+.hexagon{
+  position: relative;
+  cursor: pointer;
+}
+
+.hexagon_after{
+  content: '';
+  height: 0;
+  left: 0;
+  position: absolute;
+  width: 0;
+}
+
+.hexagon-content{
+  margin: 0px 2px 0px 2px;
+}
+
+.grid{
+  background-color: #305252;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 50px;
+}
+
+.grid-center{
+  left: 50%;
+  position: absolute;
+  top: 50%;
+}

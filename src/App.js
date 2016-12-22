@@ -1,21 +1,34 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Hexagon from './Hexagon/Hexagon';
+import GameState from './Store/GameState';
+
+const nbHexagon = 10;
+const size = 50;
 
 class App extends Component {
+
+  constructor(props){
+    super(props);
+
+    this.state = GameState.subscribe(this,'setState');
+
+  }
+
+  componentWillMount(){
+    if(!this.state.hexagons.length) GameState.action('init')(nbHexagon)
+  }
+
   render() {
+    let grid = this.state.hexagons.map(data => <Hexagon key={data.col+'-'+data.row} size={size} row={data.row} col={data.col} color={data.c}/> )
+
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+      {grid}
       </div>
     );
   }
 }
+
+
 
 export default App;
